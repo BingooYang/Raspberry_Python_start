@@ -1,0 +1,16 @@
+Python3中调用SPI库：
+
+#在Python3中 import spidev库
+import spidev
+
+#打开设备，以及发送数据
+spi = spidev.SpiDev()
+spi.open(bus,device)
+to_send=[0x01,0x02,0x03]
+spi.xfer(to_send)
+＃发送数据每个字节从新激活片选
+spi.xfer2(to_send)
+#发送数据保持片选知道发送完成
+
+＃配置传送的速率
+self.spi.max_speed_hz = 5000

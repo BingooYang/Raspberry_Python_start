@@ -1,0 +1,42 @@
+打印管脚 gpio readall
+
+import RPI.GPIO as GPIO
+  导入Rpi.GPIO的模块
+ 
+ GPIO.setmode(GPIO.BOARD)
+ GPIO.setmode(GPIO.BCM)
+ 配置引脚编号模式
+ 
+ GPIO.setwarnings(False)
+   Rpi,GPIO会检测GPIO是否为默认状态，如果不是会提出警告，这里禁用警告
+   
+ GPIO.setup(channel,GPIO.IN)
+ GPIO.setup(channel,GPIO.OUT)
+   设置channel的方向
+  
+ chan_list=[11,12]
+ GPIO.setup(chan_list,GPIO.OUT)
+   批量设置GPIO
+   
+ GPIO用作输出:
+ GPIO.output(channel,state)
+     配置channel的输出状态(高低电平)
+     state:GPIO.LOW,GPIO.HIGH
+ 
+ chan_list =[11,12]
+ GPIO.output(chan_list,GPIO.LOW)
+ GPIO.output(chan_list,(GPIO.HIGH,GPIO.LOW))
+     批量配置GPIO输出电平
+ 
+ GPIO用作输入:
+ GPIO.setup(channel,GPIO.IN,pull_up_down=GPIO.PUD_UP)
+     配置channel为输入,内部上拉
+     
+ vale =GPIO.input(channel)
+     读取GPIO当前电平
+     
+ GPIO.cleanup(channel)
+     清除GPIO当前状态
+ 
+ 
+ 

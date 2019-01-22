@@ -1,0 +1,19 @@
+p = GPIO.PWM(channel,frequency)
+    将GPIO配置为输出PWM的模式
+    channel:GPIO的编号
+    frequency:PWM信号频率
+
+p.start(dc)
+    开始启动PWM信号输出
+    dc开始的占空比
+
+p.ChangeFrequency(freq)
+    修改当前对象p的PWM信号频率
+    freq:要修改的频率
+
+p.ChangeDutyCycle(dc)
+    修改当前对象p的占空比
+    dc:要修改的占空比数值
+
+p.stop()
+    停止PWM
